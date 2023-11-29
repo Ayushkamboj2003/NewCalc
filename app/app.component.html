@@ -1,0 +1,34 @@
+<div
+  style="border: 2px solid; margin: auto; margin-top: 300px; padding: 25px"
+  class="mycalc"
+>
+  <input value="{{ toshow }}" type="text" />
+  <div class="all-btn">
+    <div class="all-btn-number">
+      <button (click)="write('1')">1</button>
+      <button (click)="write('2')">2</button>
+      <button (click)="write('3')">3</button>
+      <button (click)="write('4')">4</button>
+      <button (click)="write('5')">5</button>
+      <button (click)="write('6')">6</button>
+      <button (click)="write('7')">7</button>
+      <button (click)="write('8')">8</button>
+      <button (click)="write('9')">9</button>
+      <button (click)="write('0')">0</button>
+      <div class="btn-extra">
+        <button (click)="write('.')">.</button>
+        <button (click)="back()">back</button>
+      </div>
+    </div>
+    <div class="all-btn-sign">
+      <button (click)="write('+')">+</button>
+      <button (click)="write('-')">-</button>
+      <button (click)="write('*')">*</button>
+      <button (click)="write('/')">/</button>
+    </div>
+  </div>
+  <div class="btn-clear-equals">
+    <button (click)="clear()">C</button>
+    <button (click)="equals()">=</button>
+  </div>
+</div>
