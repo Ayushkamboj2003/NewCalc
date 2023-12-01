@@ -2,7 +2,8 @@
   style="border: 2px solid; margin: auto; margin-top: 300px; padding: 25px"
   class="mycalc"
 >
-  <input value="{{ toshow }}" type="text" />
+  <input disabled value="{{ toshow }}" type="text" />
+  <button style="margin-left: 200px ;" (click) ="change()" >{{typecalc}}</button>
   <div class="all-btn">
     <div class="all-btn-number">
       <button (click)="write('1')">1</button>
@@ -25,6 +26,17 @@
       <button (click)="write('-')">-</button>
       <button (click)="write('*')">*</button>
       <button (click)="write('/')">/</button>
+      <button (click)="write('%')">%</button>
+    </div>
+    <div
+     *ngIf="!valid" class="all-btn-sign">
+    <button (click)="write('(')">(</button>
+     <button (click)="write(')')">)</button>
+     <button  (click)="squareroots()">√</button>
+     <button (click)="write('x²')">x²</button>
+     <button >π</button>
+ </div>
+    <div>
     </div>
   </div>
   <div class="btn-clear-equals">

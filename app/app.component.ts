@@ -13,6 +13,26 @@ export class AppComponent {
   title = 'NewCalc';
   toshow = ''
   currentvalue = ''
+  valid: boolean = true
+  typecalc:string = 'scientifica'
+  sqaureroot :  number =25;
+
+ngOninit(){
+  if(this.valid==true){
+    this.typecalc='Normale'
+  }
+}
+change(){
+  this.valid =!this.valid
+  if (this.valid == false){
+this.typecalc= 'Normale'
+  }
+  else{
+this.typecalc= 'Scientifica'
+  }
+
+  
+}
 
 write(value:any)
   {
@@ -36,6 +56,16 @@ back(){
   if(this.toshow ==''){ this.toshow ='0'}
  
 
+
 }
+pi(value:any){
+this.currentvalue += Math.PI
+this.toshow += 'π'
+}
+squareroots(): number {
+ // var squareroot = Math.sqrt(num);
+return Math.sqrt(this.sqaureroot);
+
 }
 
+}
