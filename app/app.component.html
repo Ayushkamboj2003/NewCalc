@@ -26,15 +26,15 @@
       <button (click)="write('-')">-</button>
       <button (click)="write('*')">*</button>
       <button (click)="write('/')">/</button>
-      <button (click)="write('%')">%</button>
+      <button (click)="percentage()">%</button>
     </div>
     <div
      *ngIf="!valid" class="all-btn-sign">
     <button (click)="write('(')">(</button>
      <button (click)="write(')')">)</button>
      <button  (click)="squareroots()">√</button>
-     <button (click)="write('x²')">x²</button>
-     <button >π</button>
+     <button (click)="square()">x²</button>
+     <button (click)="pi()">π</button>
  </div>
     <div>
     </div>
