@@ -3,6 +3,26 @@
   class="mycalc"
 >
   <input disabled value="{{ toshow }}" type="text" />
+
+
+  <div *ngFor="let nome of listaNomi">{{nome}}</div>
+  <div *ngFor="let calcolatrice of listaCalcolatrici">{{calcolatrice}}</div>
+  
+  <select name="TipoCalcolatrice" (change)="setValue($event)">
+    <option *ngFor="let calcolatrice of listaCalcolatrici" value={{calcolatrice}}>{{calcolatrice}}</option>
+  </select>
+
+
+  <div *ngFor="let calcolatrice of listaCalcolatrici">
+    
+    <div *ngIf="calcolatrice == 'Scientifica'">Scrivo del testo solo se calcolatrice è scientifica</div>
+
+  </div>
+  
+
+
+
+
   <button style="margin-left: 200px ;" (click) ="change()" >{{typecalc}}</button>
   <div class="all-btn">
     <div class="all-btn-number">

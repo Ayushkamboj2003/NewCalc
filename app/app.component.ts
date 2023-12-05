@@ -17,10 +17,15 @@ export class AppComponent {
   typecalc: string = 'scientifica';
   sqaureroot: number = 25;
 
+  listaNomi = ['Fabio','Ajush','Vincenzo','Bibis'];
+
+  listaCalcolatrici = ['/assets/','Scientifica','Per Bambini'];
+
   ngOninit() {
     if (this.valid == true) {
       this.typecalc = 'Normale';
     }
+    console.log(this.listaNomi);
   }
   change() {
     this.valid = !this.valid;
@@ -30,6 +35,14 @@ export class AppComponent {
       this.typecalc = 'Scientifica';
     }
   }
+
+
+  setValue(event:any) {
+    console.log(event.target.value);
+    console.log(this.listaNomi);
+    console.log(this.listaNomi[2]);
+  }
+
 
   write(value: any) {
     if (this.currentvalue == '0') {
