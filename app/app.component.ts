@@ -21,9 +21,21 @@ export class AppComponent {
 
   listaCalcolatrici = ['Normale', 'Scientifica', 'Bambini'];
 
-  numeribambini = ['../assets/icon/zero.png','../assets/icon/uno.png','../assets/icon/due.png','../assets/icon/tre.png','../assets/icon/quattro.png','../assets/icon/cinque.png','../assets/icon/sei.png',
-  '../assets/icon/sette.png','../assets/icon/otto.png','../assets/icon/nove.png','../assets/icon/più.png','../assets/icon/meno.png','../assets/icon/per.png','../assets/icon/diviso.png','../assets/icon/uguale.png']
-
+  numeribambini = [
+    '',
+    '../assets/Numer.images/cartoon.N1.jpeg',
+    '../assets/Numer.images/cartoon.N2.jpeg',
+    '../assets/Numer.images/cartoon.N3.jpeg',
+    '../assets/Numer.images/cartoon.N4.jpeg',
+    '../assets/Numer.images/cartoon.N5.jpeg',
+    '../assets/Numer.images/cartoon.N6.jpeg',
+    '../assets/Numer.images/cartoon.N7.jpeg',
+    '../assets/Numer.images/cartoon.N8.jpeg',
+    '../assets/Numer.images/cartoon.N9.jpeg',
+    '../assets/Numer.images/cartoon.N0.jpeg',
+    '../assets/Numer.images/plus.jpg',
+    '../assets/Numer.images/Meno.jpg',
+  ];
   ngOninit() {
     if (this.valid == true) {
       this.typecalc = 'Normale';
@@ -31,7 +43,7 @@ export class AppComponent {
   }
 
   setValue(event: any) {
-    this.typecalc=event.target.value
+    this.typecalc = event.target.value;
   }
 
   write(value: any) {
@@ -43,8 +55,6 @@ export class AppComponent {
     }
     this.toshow = this.currentvalue;
   }
-
-
 
   equals() {
     this.toshow = eval(this.currentvalue);
