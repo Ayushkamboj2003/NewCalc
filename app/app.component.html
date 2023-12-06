@@ -4,32 +4,40 @@
 >
   <input disabled value="{{ toshow }}" type="text" />
 
-
-  <div *ngFor="let nome of listaNomi">{{nome}}</div>
-  <div *ngFor="let calcolatrice of listaCalcolatrici">{{calcolatrice}}</div>
-  
-  <select name="TipoCalcolatrice" (change)="setValue($event)">
-    <option *ngFor="let calcolatrice of listaCalcolatrici" value={{calcolatrice}}>{{calcolatrice}}</option>
+  <select style="margin-left: 150px"  name="tipocalcolatrice"(change)="setValue($event)">
+    <option *ngFor="let tipocalcolatrice of listaCalcolatrici" value={{tipocalcolatrice}}>{{tipocalcolatrice}}</option>  
   </select>
 
-
-  <div *ngFor="let calcolatrice of listaCalcolatrici">
-    
-    <div *ngIf="calcolatrice == 'Scientifica'">Scrivo del testo solo se calcolatrice è scientifica</div>
-
-  </div>
-  
-
-
-
-
-  <button style="margin-left: 200px ;" (click) ="change()" >{{typecalc}}</button>
   <div class="all-btn">
-    <div class="all-btn-number">
+
+    <div class="contenitore-operatori-scientifica" *ngIf="typecalc =='Bambini'">
+
+      <button class="button-bambini" (click)="write('1')"> <img src="{{numeribambini[1]}}" class="bambini-image"> </button>
+      <button class="button-bambini" (click)="write('2')"> <img src="{{numeribambini[2]}}" class="bambini-image"> </button>
+      <button class="button-bambini" (click)="write('3')"> <img src="{{numeribambini[3]}}" class="bambini-image"> </button>
+      <button class="button-bambini" (click)="write('*')"> <img src="{{numeribambini[12]}}" class="bambini-image"> </button>
+      <button class="button-bambini" (click)="write('/')"> <img src="{{numeribambini[13]}}" class="bambini-image"> </button>
+    
+    
+      <button class="button-bambini" (click)="write('4')"> <img src="{{numeribambini[4]}}" class="bambini-image"> </button>
+      <button class="button-bambini" (click)="write('5')"> <img src="{{numeribambini[5]}}" class="bambini-image"> </button>
+      <button class="button-bambini" (click)="write('6')"> <img src="{{numeribambini[6]}}" class="bambini-image"> </button>
+      <button class="button-bambini" (click)="write('+')"> <img src="{{numeribambini[10]}}" class="bambini-image"> </button>
+      <button class="button-bambini" (click)="write('-')"> <img src="{{numeribambini[11]}}" class="bambini-image"> </button>
+    
+      <button class="button-bambini" (click)="write('7')"> <img src="{{numeribambini[7]}}" class="bambini-image"> </button>
+      <button class="button-bambini" (click)="write('8')"> <img src="{{numeribambini[8]}}" class="bambini-image"> </button>
+      <button class="button-bambini" (click)="write('9')"> <img src="{{numeribambini[9]}}" class="bambini-image"> </button>
+      <button class="button-bambini" (click)="write('0')"> <img src="{{numeribambini[0]}}" class="bambini-image"> </button>
+      <button class="button-bambini" (click)="equals()">   <img src="{{numeribambini[14]}}" class="bambini-image"> </button>
+    
+     </div>
+
+    <div class="all-btn-number"  *ngIf="typecalc !=='Bambini'">
       <button (click)="write('1')">1</button>
       <button (click)="write('2')">2</button>
       <button (click)="write('3')">3</button>
-      <button (click)="write('4')">4</button>
+      <button (click)="write('4')">4</button> 
       <button (click)="write('5')">5</button>
       <button (click)="write('6')">6</button>
       <button (click)="write('7')">7</button>
@@ -41,23 +49,21 @@
         <button (click)="back()">back</button>
       </div>
     </div>
-    <div class="all-btn-sign">
+    <div class="all-btn-sign" *ngIf="typecalc !=='Bambini'">
       <button (click)="write('+')">+</button>
       <button (click)="write('-')">-</button>
       <button (click)="write('*')">*</button>
       <button (click)="write('/')">/</button>
       <button (click)="percentage()">%</button>
     </div>
-    <div
-     *ngIf="!valid" class="all-btn-sign">
-    <button (click)="write('(')">(</button>
-     <button (click)="write(')')">)</button>
-     <button  (click)="squareroots()">√</button>
-     <button (click)="square()">x²</button>
-     <button (click)="pi()">π</button>
- </div>
-    <div>
+    <div *ngIf="typecalc =='Scientifica'" class="all-btn-sign">
+      <button (click)="write('(')">(</button>
+      <button (click)="write(')')">)</button>
+      <button (click)="squareroots()">√</button>
+      <button (click)="square()">x²</button>
+      <button (click)="pi()">π</button>
     </div>
+
   </div>
   <div class="btn-clear-equals">
     <button (click)="clear()">C</button>

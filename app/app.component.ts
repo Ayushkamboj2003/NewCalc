@@ -14,35 +14,25 @@ export class AppComponent {
   toshow = '';
   currentvalue: any = '';
   valid: boolean = true;
-  typecalc: string = 'scientifica';
+  typecalc: string = '';
   sqaureroot: number = 25;
 
-  listaNomi = ['Fabio','Ajush','Vincenzo','Bibis'];
+  listaImages = [];
 
-  listaCalcolatrici = ['/assets/','Scientifica','Per Bambini'];
+  listaCalcolatrici = ['Normale', 'Scientifica', 'Bambini'];
+
+  numeribambini = ['../assets/icon/zero.png','../assets/icon/uno.png','../assets/icon/due.png','../assets/icon/tre.png','../assets/icon/quattro.png','../assets/icon/cinque.png','../assets/icon/sei.png',
+  '../assets/icon/sette.png','../assets/icon/otto.png','../assets/icon/nove.png','../assets/icon/più.png','../assets/icon/meno.png','../assets/icon/per.png','../assets/icon/diviso.png','../assets/icon/uguale.png']
 
   ngOninit() {
     if (this.valid == true) {
       this.typecalc = 'Normale';
     }
-    console.log(this.listaNomi);
-  }
-  change() {
-    this.valid = !this.valid;
-    if (this.valid == false) {
-      this.typecalc = 'Normale';
-    } else {
-      this.typecalc = 'Scientifica';
-    }
   }
 
-
-  setValue(event:any) {
-    console.log(event.target.value);
-    console.log(this.listaNomi);
-    console.log(this.listaNomi[2]);
+  setValue(event: any) {
+    this.typecalc=event.target.value
   }
-
 
   write(value: any) {
     if (this.currentvalue == '0') {
@@ -53,6 +43,9 @@ export class AppComponent {
     }
     this.toshow = this.currentvalue;
   }
+
+
+
   equals() {
     this.toshow = eval(this.currentvalue);
     this.currentvalue = this.toshow;
@@ -82,8 +75,8 @@ export class AppComponent {
     this.currentvalue += '** 2';
     this.toshow += '²';
   }
-  percentage(){
-    this.currentvalue += '/100*'
-    this.toshow +='% of'
+  percentage() {
+    this.currentvalue += '/100*';
+    this.toshow += '% of';
   }
 }
